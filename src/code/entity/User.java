@@ -71,7 +71,7 @@ public class User implements TransferToCsvLine, EntityPrinter {
     }
 
     @Override
-    public String getUserLine() {
+    public String getEntityLine() {
         return  "id : " + id +
                 ", email : " + email +
                 ", password : " + password +

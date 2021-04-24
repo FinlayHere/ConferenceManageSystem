@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Accessor<T> {
-    private static final String BASE_PATH = "src/resource/";
+    private static final String RESOURCE_PATH = "src/resource/";
     private final CmsEntity cmsEntity;
     private final Transferable<T> transfer;
 
@@ -17,9 +17,10 @@ public class Accessor<T> {
         this.transfer = cmsEntity.getTransfer();
     }
 
+    // load all csv entity and transfer to object
     public List<T> loadAll(){
         List<T> entities = new ArrayList<>();
-        File entityDataFile = new File(BASE_PATH + cmsEntity.getFileName());
+        File entityDataFile = new File(RESOURCE_PATH + cmsEntity.getFileName());
         try {
             BufferedReader entityDataReader = new BufferedReader(new FileReader(entityDataFile));
             entityDataReader.readLine();
@@ -36,7 +37,7 @@ public class Accessor<T> {
 
     public void saveAll(List<T> entities) {
         try {
-            File entityDataFile = new File(BASE_PATH + cmsEntity.getFileName());
+            File entityDataFile = new File(RESOURCE_PATH + cmsEntity.getFileName());
             if (entityDataFile.exists()) {
                 entityDataFile.delete();
             }
