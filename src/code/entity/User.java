@@ -1,8 +1,10 @@
 package code.entity;
 
+import code.transfer.EntityPrinter;
+import code.transfer.TransferToCsvLine;
 import code.transfer.UserTransfer;
 
-public class User {
+public class User implements TransferToCsvLine, EntityPrinter {
     private Integer id;
     private String email;
     private String password;
@@ -68,6 +70,7 @@ public class User {
                 '}';
     }
 
+    @Override
     public String getUserLine() {
         return  "id : " + id +
                 ", email : " + email +
@@ -75,7 +78,8 @@ public class User {
                 ", role : " + role;
     }
 
-    public String getCsvLine() {
+    @Override
+    public String toCsvLine() {
         return String.format("%s,%s,%s,%s", id, email, password, role);
     }
 }

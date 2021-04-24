@@ -1,4 +1,4 @@
-package code.loader;
+package code.accessor;
 
 import code.entity.CmsEntity;
 import code.transfer.Transferable;
@@ -17,7 +17,6 @@ public class Accessor<T> {
         this.transfer = cmsEntity.getTransfer();
     }
 
-
     public List<T> loadAll(){
         List<T> entities = new ArrayList<>();
         File entityDataFile = new File(BASE_PATH + cmsEntity.getFileName());
@@ -34,30 +33,7 @@ public class Accessor<T> {
         }
         return entities;
     }
-//
-//public void saveAllItem(List<Item> items) {
-//    try {
-//        File ItemCsvFile = new File("/Users/fanchaokong/Desktop/FIT5136/BakeShop/src/resource/user.csv");
-//
-//        if(ItemCsvFile.exists()) {
-//            ItemCsvFile.delete();
-//            ItemCsvFile.createNewFile();
-//        }
-//        ItemCsvFile.createNewFile();
-//
-//        BufferedWriter itemDataWriter = new BufferedWriter(new FileWriter(ItemCsvFile, true)); // 附加
-//
-//        itemDataWriter.write(ITEM_CSV_TITLE);
-//        for (Item item : items){
-//            itemDataWriter.newLine();
-//            itemDataWriter.write(transferItemObjectToData(item));
-//        }
-//        itemDataWriter.close();
-//
-//    } catch (IOException e) {
-//        e.printStackTrace();
-//    }
-//}
+
     public void saveAll(List<T> entities) {
         try {
             File entityDataFile = new File(BASE_PATH + cmsEntity.getFileName());

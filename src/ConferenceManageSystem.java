@@ -1,7 +1,7 @@
 import code.entity.Admin;
 import code.entity.CmsEntity;
 import code.entity.User;
-import code.loader.Accessor;
+import code.accessor.Accessor;
 import code.userInterface.UserInterface;
 
 import java.util.List;

@@ -11,11 +11,11 @@ public class UserTransfer implements Transferable<User>{
 
     @Override
     public User toObjectBy(String[] info){
-        return new User(info[0], info[1], info[2], info[3]);
+        return new User(Integer.parseInt(info[0]), info[1], info[2], info[3]);
     }
 
     @Override
-    public String toStringBy(User entity) {
-        return entity.getCsvLine();
+    public String toStringBy(User user) {
+        return user.toCsvLine();
     }
 }
