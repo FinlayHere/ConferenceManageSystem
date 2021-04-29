@@ -1,17 +1,20 @@
 package code.entity;
 
+import code.repo.UserRepository;
 import code.transfer.EntityPrinter;
 import code.transfer.TransferToCsvLine;
 import code.transfer.UserTransfer;
 
 public class User implements TransferToCsvLine, EntityPrinter {
+    private final UserRepository userRepository = UserRepository.getInstance();
+
     private Integer id;
     private String email;
     private String password;
     private String role;
 
     public User(Integer id, String email, String password, String role) {
-        this.id = id;
+        this.id = userRepository.generateMaxId();
         this.email = email;
         this.password = password;
         this.role = role;

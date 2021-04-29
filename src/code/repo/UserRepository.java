@@ -41,7 +41,7 @@ public class UserRepository implements Repository<User> {
         return users.stream()
                 .max(Comparator.comparingInt(User::getId))
                 .get()
-                .getId();
+                .getId() + 1;
     }
 
     @Override
