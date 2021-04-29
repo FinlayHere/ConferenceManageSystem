@@ -1,6 +1,7 @@
 package code.entity;
 
 import code.transfer.EntityPrinter;
+import code.transfer.TimeUtils;
 import code.transfer.TransferToCsvLine;
 
 import java.time.LocalDate;
@@ -107,11 +108,13 @@ public class Paper implements TransferToCsvLine, EntityPrinter {
     @Override
     public String getEntityLine() {
         return String.format("id : %d, authorId : %d, conferenceId : %d, name : %s, topic : %s, submitDate : %s," +
-                " format : %s, state : %s", id, authorId, conferenceId, topic, name, submitTime.toString(), format, state);
+                " format : %s, state : %s", id, authorId, conferenceId, topic, name,
+                TimeUtils.convertToString(submitTime), format, state);
     }
 
     @Override
     public String toCsvLine() {
-        return String.format("%d,%d,%d,%s,%s,%s,%s,%s", id, authorId, conferenceId, topic, name, submitTime.toString(), format, state);
+        return String.format("%d,%d,%d,%s,%s,%s,%s,%s", id, authorId, conferenceId, topic, name,
+                TimeUtils.convertToString(submitTime), format, state);
     }
 }

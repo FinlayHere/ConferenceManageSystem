@@ -1,12 +1,12 @@
 package code.entity;
 
-import code.transfer.PaperTransfer;
-import code.transfer.Transferable;
-import code.transfer.UserTransfer;
+import code.transfer.*;
 
 public enum CmsEntity {
     USER("user.csv", new UserTransfer(), "id,email,password,role"),
-    PAPER("paper.csv", new PaperTransfer(), "id,authorId,conferenceId,topic,name,submitTime,format,state");
+    PAPER("paper.csv", new PaperTransfer(), "id,authorId,conferenceId,topic,name,submitTime,format,state"),
+    CONFERENCE("conference.csv", new ConferenceTransfer(), "id,title,deadline"),
+    EVALUATION("evaluation.csv", new EvaluationTransfer(), "id,authorId,reviewerId,score");
     private String fileName;
     private Transferable transfer;
     private String fileTitle;

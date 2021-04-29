@@ -1,33 +1,27 @@
 package code.entity;
 
-import java.util.List;
+import code.repo.ConferenceRepository;
+import code.repo.PaperRepository;
+import code.repo.UserRepository;
 
-public class Admin extends User{
-    private List<User> users;
-    private List<Conference> conferences;
-    private List<Paper> papers;
-
-    public Admin(User user, List<User> users) {
-        super(user.getId(), user.getEmail(), user.getPassword(), user.getRole());
-        this.users = users;
-    }
-
-    public Admin(User user, List<User> users, List<Conference> conferences, List<Paper> papers) {
-        super(user.getId(), user.getEmail(), user.getPassword(), user.getRole());
-        this.users = users;
-        this.papers = papers;
-        this.conferences = conferences;
-    }
+public class Admin extends User {
+    private final PaperRepository paperRepository = PaperRepository.getInstance();
+    private final UserRepository userRepository = UserRepository.getInstance();
+    private final ConferenceRepository conferenceRepository = ConferenceRepository.getInstance();
 
     public String Im() {
         return "admin:" + getEmail();
     }
 
+    public void retrievePaper() {
+        paperRepository.retrieveAll();
+    }
+
     public void retrieveUser() {
-        users.forEach(
-                user ->{
-                    System.out.println(user.getEntityLine());
-                }
-        );
+        userRepository.retrieveAll();
+    }
+
+    public void retrieveConference() {
+        conferenceRepository.retrieveAll();
     }
 }

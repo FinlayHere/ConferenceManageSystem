@@ -44,11 +44,11 @@ public class User implements TransferToCsvLine, EntityPrinter {
         this.password = password;
     }
 
-    public boolean passwordEqualTo(String password){
+    public boolean passwordEqualTo(String password) {
         return password.equals(this.password);
     }
 
-    public UserTransfer getDataTransfer(){
+    public UserTransfer getDataTransfer() {
         return new UserTransfer();
     }
 
@@ -72,7 +72,7 @@ public class User implements TransferToCsvLine, EntityPrinter {
 
     @Override
     public String getEntityLine() {
-        return  "id : " + id +
+        return "id : " + id +
                 ", email : " + email +
                 ", password : " + password +
                 ", role : " + role;
@@ -81,5 +81,9 @@ public class User implements TransferToCsvLine, EntityPrinter {
     @Override
     public String toCsvLine() {
         return String.format("%s,%s,%s,%s", id, email, password, role);
+    }
+
+    public void submitPaper() {
+
     }
 }
