@@ -1,18 +1,23 @@
 package code.entity;
 
 import code.transfer.EntityPrinter;
+import code.transfer.TimeUtils;
 import code.transfer.TransferToCsvLine;
+
+import java.time.LocalDate;
 
 public class Conference implements TransferToCsvLine, EntityPrinter {
     private Integer id;
     private String title;
-
-    public Conference(Integer id, String title) {
-        this.id = id;
-        this.title = title;
-    }
+    private LocalDate deadline;
 
     public Conference() {
+    }
+
+    public Conference(Integer id, String title, LocalDate deadline) {
+        this.id = id;
+        this.title = title;
+        this.deadline = deadline;
     }
 
     public Integer getId() {
@@ -33,11 +38,11 @@ public class Conference implements TransferToCsvLine, EntityPrinter {
 
     @Override
     public String getEntityLine() {
-        return null;
+        return String.format("id : %d, title : %s, deadline : %s", id, title, TimeUtils.convertToString(deadline));
     }
 
     @Override
     public String toCsvLine() {
-        return String.format("%n,%s", id, title);
+        return String.format("%d,%s,%s", id, title, TimeUtils.convertToString(deadline));
     }
 }

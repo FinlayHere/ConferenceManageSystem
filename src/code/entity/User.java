@@ -4,6 +4,7 @@ import code.repo.UserRepository;
 import code.transfer.EntityPrinter;
 import code.transfer.TransferToCsvLine;
 import code.transfer.UserTransfer;
+import code.userInterface.UserInterface;
 
 public class User implements TransferToCsvLine, EntityPrinter {
     private final UserRepository userRepository = UserRepository.getInstance();
@@ -14,7 +15,7 @@ public class User implements TransferToCsvLine, EntityPrinter {
     private String role;
 
     public User(Integer id, String email, String password, String role) {
-        this.id = userRepository.generateMaxId();
+        this.id = id;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -86,7 +87,11 @@ public class User implements TransferToCsvLine, EntityPrinter {
         return String.format("%s,%s,%s,%s", id, email, password, role);
     }
 
-    public void submitPaper() {
+    public void runFeatureBy(Integer option){
+
+    }
+
+    public void displayPage(){
 
     }
 }

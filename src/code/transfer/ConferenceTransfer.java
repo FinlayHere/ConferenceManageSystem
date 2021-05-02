@@ -10,7 +10,7 @@ public class ConferenceTransfer implements Transferable<Conference> {
 
     @Override
     public Conference toObjectBy(String[] info) {
-        return new Conference(Integer.parseInt(info[0]), info[1]);
+        return new Conference(Integer.parseInt(info[0]), info[1], TimeUtils.convertToDate(info[2]));
     }
 
     @Override
