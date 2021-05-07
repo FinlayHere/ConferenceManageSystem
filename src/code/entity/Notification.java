@@ -1,5 +1,6 @@
 package code.entity;
 
 public class Notification {
-    private String content;
+		
+		private String content;
 }

@@ -1,5 +1,6 @@
 package code.transfer;
 
 public interface TransferToCsvLine {
-    String toCsvLine();
+		
+		String toCsvLine();
 }
